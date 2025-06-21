@@ -1,0 +1,66 @@
+Build a scroll-based landing page for a restaurant QR billing software named **Quickbils**.
+
+🖤 Theme & Style:
+- Use a dark background theme with glowing elements
+- Glassmorphism card UI (blurred, glowing edges)
+- Animated background similar to https://superconscious-app.webflow.io — floating blobs, gradients, motion trails
+- TailwindCSS + Framer Motion or GSAP (for animations)
+
+📌 Hero Section:
+- Fixed QR code in the center of a glowing table graphic (rounded edge table)
+- A floating mobile phone starts off-screen
+- As user scrolls, mobile slides toward the QR code
+- When it reaches, animation plays showing:
+  • "Menu opens" → "Item selected" → "Order placed" → "Bill preview"
+
+📱 Order Animation:
+- Simulate menu UI inside the mobile screen
+- Animate tap-to-order → item flying to cart → payment success tick
+- Display order total & QR-linked payment option
+
+📊 Dashboard Section (Scroll-triggered)
+- Glassy POS dashboard mockup slides up
+- Shows:
+  • Table view (PetPooja-style)
+  • Orders list
+  • GST invoice preview
+  • Analytics chart
+  • Live KOT/QSR mode
+  • Order timeline with status chips
+
+📦 Features Section (Parallax + 3D Cards):
+- Floating 3D cards with hover tilt effect:
+  • Admin Panel – View branches, invoices
+  • Waiter Mode – Mobile billing, fast order
+  • Customer Mode – Scan & self-pay
+  • Super Admin – Control restaurant chain
+- Background: animated gradient blobs
+
+💸 Pricing Page (Reveal on Scroll):
+- Animate pricing cards with toggle (Monthly/Yearly)
+- Three Plans:
+  • Starter: 1 outlet, ₹499/mo
+  • Pro: 3 outlets, menu builder, ₹1499/mo
+  • Enterprise: unlimited outlets, GST invoicing, ₹3999/mo
+- Each card animates upward on scroll with glowing hover state
+- CTA buttons with loading wave effect
+
+📞 Final CTA:
+- Floating QR code returns to center with glowing ring
+- Text: “Digitize your restaurant with Quickbils today”
+- Buttons: [Register Free] [Schedule Live Demo]
+
+📱 Mobile Responsive:
+- Mobile-first layout with smooth scroll
+- Sticky navbar on top with animated logo
+- Section snapping on scroll (optional)
+
+📦 Technologies:
+- React + TailwindCSS
+- Framer Motion (or GSAP)
+- Locomotive Scroll (or ScrollTrigger) for parallax
+- Lazy-loaded assets for performance
+
+🧠 Goal:
+Generate actual working UI components for all above with modular React code structure. Pages: Home, Features, Dashboard Showcase, Pricing, Contact.
+

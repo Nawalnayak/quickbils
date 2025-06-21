@@ -1,4 +1,5 @@
 import { Crown, Store, Smartphone, Users, Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function FeaturesSection() {
   const features = [
@@ -49,32 +50,57 @@ export function FeaturesSection() {
   ];
 
   return (
-    <section className="scroll-section bg-gradient-to-br from-[hsl(45,100%,96%)] to-white py-20" id="features">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[hsl(210,24%,16%)] mb-6">
+    <section className="scroll-section bg-gradient-to-br from-[hsl(220,13%,12%)] to-[hsl(220,13%,9%)] py-20 relative overflow-hidden" id="features">
+      {/* Floating Background Elements */}
+      <div className="floating-blob floating-blob-1"></div>
+      <div className="floating-blob floating-blob-2"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Powerful Features
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-white/70 max-w-2xl mx-auto">
             Everything you need to run a modern restaurant
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
-              <div key={index} className="glassmorphism rounded-2xl p-8 card-hover cursor-pointer">
-                <div className={`w-16 h-16 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-6`}>
+              <motion.div 
+                key={index} 
+                className="glassmorphism-card rounded-2xl p-8 card-hover cursor-pointer glow-effect"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.6,
+                  delay: index * 0.1
+                }}
+                viewport={{ once: true }}
+                whileHover={{ 
+                  scale: 1.05,
+                  rotateY: 10,
+                  rotateX: 10
+                }}
+              >
+                <div className={`w-16 h-16 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center mb-6 glow-effect`}>
                   <IconComponent className="text-white text-2xl w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-bold text-[hsl(210,24%,16%)] mb-4">
+                <h3 className="text-xl font-bold text-white mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-white/70 mb-6">
                   {feature.description}
                 </p>
-                <ul className="text-sm text-gray-600 space-y-2">
+                <ul className="text-sm text-white/60 space-y-2">
                   {feature.items.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex items-center">
                       <Check className="w-4 h-4 text-[hsl(24,100%,66%)] mr-2" />
@@ -82,7 +108,7 @@ export function FeaturesSection() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { User } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function AboutSection() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -30,59 +31,95 @@ export function AboutSection() {
   }, []);
 
   return (
-    <section className="scroll-section gradient-bg py-20" id="about">
-      <div className="container mx-auto px-6">
+    <section className="scroll-section gradient-bg py-20 relative overflow-hidden" id="about">
+      {/* Background Elements */}
+      <div className="floating-blob floating-blob-1"></div>
+      <div className="floating-blob floating-blob-2"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: Content */}
-          <div className="text-white">
+          <motion.div 
+            className="text-white"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-4xl md:text-5xl font-bold mb-8">About Quickbils</h2>
             <div className="space-y-6">
-              <div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
                 <h3 className="text-2xl font-semibold mb-3">Our Vision</h3>
-                <p className="text-lg opacity-90">
+                <p className="text-lg text-white/80">
                   To revolutionize the restaurant industry by making dining experiences seamless, 
                   efficient, and enjoyable for both customers and restaurant owners.
                 </p>
-              </div>
-              <div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
                 <h3 className="text-2xl font-semibold mb-3">Our Mission</h3>
-                <p className="text-lg opacity-90">
+                <p className="text-lg text-white/80">
                   Empowering restaurants with cutting-edge technology that simplifies operations, 
                   reduces costs, and enhances customer satisfaction.
                 </p>
-              </div>
-              <div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
                 <h3 className="text-2xl font-semibold mb-3">Restaurant Empowerment</h3>
-                <p className="text-lg opacity-90">
+                <p className="text-lg text-white/80">
                   From small cafes to large restaurant chains, we provide scalable solutions 
                   that grow with your business.
                 </p>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right: Testimonials */}
-          <div className="space-y-6">
+          <motion.div 
+            className="space-y-6"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             {testimonials.map((testimonial, index) => (
-              <div 
+              <motion.div 
                 key={index}
-                className={`glassmorphism rounded-2xl p-8 transition-all duration-500 ${
+                className={`glassmorphism-card rounded-2xl p-8 transition-all duration-500 ${
                   currentTestimonial === index 
-                    ? 'opacity-100 scale-100' 
+                    ? 'opacity-100 scale-100 glow-effect' 
                     : 'opacity-50 scale-95'
                 }`}
+                animate={{
+                  scale: currentTestimonial === index ? 1 : 0.95,
+                  opacity: currentTestimonial === index ? 1 : 0.5
+                }}
+                transition={{ duration: 0.5 }}
               >
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-4">
-                    <User className="text-[hsl(24,100%,66%)] w-6 h-6" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-[hsl(24,100%,66%)] to-[hsl(32,100%,70%)] rounded-full flex items-center justify-center mr-4 glow-effect">
+                    <User className="text-white w-6 h-6" />
                   </div>
                   <div>
                     <h4 className="text-white font-semibold">{testimonial.name}</h4>
-                    <p className="text-white opacity-70">{testimonial.role}</p>
+                    <p className="text-white/70">{testimonial.role}</p>
                   </div>
                 </div>
-                <p className="text-white opacity-90">{testimonial.content}</p>
-              </div>
+                <p className="text-white/90">{testimonial.content}</p>
+              </motion.div>
             ))}
 
             {/* Testimonial Indicators */}
@@ -93,13 +130,13 @@ export function AboutSection() {
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     currentTestimonial === index 
-                      ? 'bg-white' 
+                      ? 'bg-[hsl(24,100%,66%)] glow-effect' 
                       : 'bg-white/30 hover:bg-white/50'
                   }`}
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

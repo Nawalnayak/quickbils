@@ -1,33 +1,49 @@
 import { BarChart3, Table, Receipt } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function PosDashboard() {
   return (
-    <section className="scroll-section bg-[hsl(210,24%,16%)] py-20">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+    <section className="scroll-section bg-[hsl(220,13%,9%)] py-20 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="floating-blob floating-blob-3"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Restaurant Dashboard
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-white/70 max-w-2xl mx-auto">
             Track every order. Print every bill. Manage everything.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: Dashboard Preview */}
-          <div className="relative">
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             {/* Laptop Dashboard */}
-            <div className="bg-gray-800 rounded-2xl p-4 shadow-2xl">
-              <div className="bg-white rounded-xl overflow-hidden">
-                <div className="bg-gray-50 p-6">
+            <div className="glassmorphism-card rounded-2xl p-4 glow-effect">
+              <div className="bg-[hsl(220,13%,15%)] rounded-xl overflow-hidden">
+                <div className="bg-[hsl(220,13%,12%)] p-6">
                   {/* Dashboard Header */}
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-xl font-bold text-gray-800">Dashboard</h3>
+                    <h3 className="text-xl font-bold text-white">Dashboard</h3>
                     <div className="flex space-x-4">
-                      <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                      <div className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm glassmorphism">
                         Active: 24
                       </div>
-                      <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                      <div className="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm glassmorphism">
                         Revenue: ₹45,680
                       </div>
                     </div>
@@ -36,32 +52,34 @@ export function PosDashboard() {
                   {/* Table Grid */}
                   <div className="grid grid-cols-6 gap-3 mb-6">
                     {Array.from({ length: 18 }, (_, i) => (
-                      <div
+                      <motion.div
                         key={i}
                         className={`
-                          aspect-square rounded-lg flex items-center justify-center text-sm font-medium
-                          ${i % 4 === 0 ? 'bg-green-100 text-green-800' : 
-                            i % 4 === 1 ? 'bg-blue-100 text-blue-800' : 
-                            i % 4 === 2 ? 'bg-yellow-100 text-yellow-800' : 
-                            'bg-gray-100 text-gray-600'}
+                          aspect-square rounded-lg flex items-center justify-center text-sm font-medium glassmorphism-card
+                          ${i % 4 === 0 ? 'bg-green-500/20 text-green-400' : 
+                            i % 4 === 1 ? 'bg-blue-500/20 text-blue-400' : 
+                            i % 4 === 2 ? 'bg-yellow-500/20 text-yellow-400' : 
+                            'bg-white/5 text-white/60'}
                         `}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ type: "spring", stiffness: 300 }}
                       >
                         T{i + 1}
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
 
                   {/* Recent Orders */}
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold mb-3">Recent Orders</h4>
+                  <div className="glassmorphism-card rounded-lg p-4">
+                    <h4 className="font-semibold mb-3 text-white">Recent Orders</h4>
                     <div className="space-y-2">
                       <div className="flex justify-between items-center text-sm">
-                        <span>Table 12 - Order #1234</span>
-                        <span className="text-green-600">₹850</span>
+                        <span className="text-white/80">Table 12 - Order #1234</span>
+                        <span className="text-green-400">₹850</span>
                       </div>
                       <div className="flex justify-between items-center text-sm">
-                        <span>Table 5 - Order #1235</span>
-                        <span className="text-green-600">₹1,250</span>
+                        <span className="text-white/80">Table 5 - Order #1235</span>
+                        <span className="text-green-400">₹1,250</span>
                       </div>
                     </div>
                   </div>
@@ -70,63 +88,92 @@ export function PosDashboard() {
             </div>
 
             {/* Floating Mobile View */}
-            <div className="absolute -bottom-8 -right-8 animate-float">
-              <div className="w-32 h-48 bg-gray-900 rounded-2xl p-1 shadow-xl">
-                <div className="w-full h-full bg-white rounded-xl overflow-hidden">
+            <motion.div 
+              className="absolute -bottom-8 -right-8"
+              animate={{
+                y: [0, -10, 0],
+                rotate: [0, 2, 0]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <div className="w-32 h-48 bg-gray-900 rounded-2xl p-1 shadow-xl glow-effect">
+                <div className="w-full h-full glassmorphism-card rounded-xl overflow-hidden">
                   <div className="p-3">
-                    <div className="text-xs font-semibold mb-2">Staff App</div>
+                    <div className="text-xs font-semibold mb-2 text-white">Staff App</div>
                     <div className="space-y-2">
-                      <div className="bg-red-100 text-red-800 p-2 rounded text-xs">
+                      <div className="bg-red-500/20 text-red-400 p-2 rounded text-xs glassmorphism">
                         New Order: T15
                       </div>
-                      <div className="bg-yellow-100 text-yellow-800 p-2 rounded text-xs">
+                      <div className="bg-yellow-500/20 text-yellow-400 p-2 rounded text-xs glassmorphism">
                         Ready: T8
                       </div>
-                      <div className="bg-green-100 text-green-800 p-2 rounded text-xs">
+                      <div className="bg-green-500/20 text-green-400 p-2 rounded text-xs glassmorphism">
                         Served: T12
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right: Features */}
-          <div className="text-white">
+          <motion.div 
+            className="text-white"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <h3 className="text-3xl font-bold mb-8">Complete Restaurant Management</h3>
             <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-[hsl(24,100%,66%)] rounded-full flex items-center justify-center">
+              <motion.div 
+                className="flex items-start space-x-4"
+                whileHover={{ x: 10 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-[hsl(24,100%,66%)] to-[hsl(32,100%,70%)] rounded-full flex items-center justify-center glow-effect">
                   <BarChart3 className="text-white w-6 h-6" />
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold mb-2">Real-time Analytics</h4>
-                  <p className="text-gray-300">Monitor sales, popular items, and customer patterns in real-time</p>
+                  <p className="text-white/70">Monitor sales, popular items, and customer patterns in real-time</p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-[hsl(24,100%,66%)] rounded-full flex items-center justify-center">
+              <motion.div 
+                className="flex items-start space-x-4"
+                whileHover={{ x: 10 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-[hsl(24,100%,66%)] to-[hsl(32,100%,70%)] rounded-full flex items-center justify-center glow-effect">
                   <Table className="text-white w-6 h-6" />
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold mb-2">Table Management</h4>
-                  <p className="text-gray-300">Visual table layout with order status and occupancy tracking</p>
+                  <p className="text-white/70">Visual table layout with order status and occupancy tracking</p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-[hsl(24,100%,66%)] rounded-full flex items-center justify-center">
+              <motion.div 
+                className="flex items-start space-x-4"
+                whileHover={{ x: 10 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-[hsl(24,100%,66%)] to-[hsl(32,100%,70%)] rounded-full flex items-center justify-center glow-effect">
                   <Receipt className="text-white w-6 h-6" />
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold mb-2">Smart Billing</h4>
-                  <p className="text-gray-300">Automated GST calculations and professional invoice generation</p>
+                  <p className="text-white/70">Automated GST calculations and professional invoice generation</p>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
