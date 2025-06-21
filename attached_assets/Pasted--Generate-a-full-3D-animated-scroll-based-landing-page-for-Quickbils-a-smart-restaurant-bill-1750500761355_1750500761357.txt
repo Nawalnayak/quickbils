@@ -1,0 +1,72 @@
+✨ Generate a full 3D animated, scroll-based landing page for **Quickbils** — a smart restaurant billing and QR menu platform.
+
+🧠 Software Name: **Quickbils**  
+📛 Add: Custom logo top-left with brand text:  
+→ Logo idea: Rounded “Q” wrapped around a floating bill or receipt icon (use neumorphism or glassmorphism)  
+→ Color palette: Warm gradient (orange-gold → cream)  
+→ Add logo to navbar and footer
+
+🎯 Design Framework:
+- GSAP + ScrollTrigger for reveal and transitions
+- Locomotive Scroll for inertia/parallax
+- TailwindCSS for layout and responsiveness
+- 3D assets lazy-loaded via Spline/Three.js
+
+📌 Sections:
+
+1. Hero Section (Full-screen)
+- Background: abstract 3D floating waves
+- Foreground: animated floating phone + rotating QR code
+- Headline: "**Quickbils: Scan. Order. Pay.**"
+- Subtext: "Smarter dining starts here."
+- CTA: [Try Demo] [Join Now]
+- Add brand logo top-left in navbar
+
+2. How It Works (Scroll-Triggered Animation)
+- GSAP timeline: QR floats left → mobile slides right
+- Mobile screen shows: Scan → Menu → Order → Pay
+- Captions for each step under animation
+
+3. Features Section (Parallax Cards)
+- 3D Parallax Cards:
+  • Super Admin – Manage outlets, users, analytics
+  • Restaurant Admin – Billing, KOT, order flows
+  • Staff App – Mobile/tablet POS
+  • Guest – Scan and pay (no app required)
+- Hover tilt & lighting effect
+- Use glassmorphism for card UI
+
+4. POS Dashboard Showcase
+- Show layout like PetPooja (table manager, order tiles)
+- Animate screen-in-phone + screen-on-laptop
+- Caption: "Track every order. Print every bill."
+
+5. Smart Billing Carousel
+- Auto-fade invoice mockups (like Ramesh Electronics)
+- Display QR-linked UPI + GST-ready invoice layout
+- Caption: "Generate smart bills in seconds"
+
+6. About Quickbils
+- Background: warm gradient + soft 3D motion
+- Content: Vision, Mission, Restaurant Empowerment
+- Auto-slide testimonials with blur/fade effect
+
+7. Final CTA Section
+- QR and Phone animate back to center
+- Text: “Bring Speed & Simplicity to Your Restaurant.”
+- CTA Buttons: [Register for Free] [Schedule Live Demo]
+- Footer with logo, social icons, quick links
+
+🎨 Styling:
+- Color palette: Warm tones (light orange, beige, soft gold)
+- Glassmorphism with blur + glow on CTAs/cards
+- Rounded elements, smooth scroll transitions
+
+🔍 Performance:
+- Lazy-load 3D and assets
+- Animate only on viewport
+- Full mobile-first layout
+
+🧰 Use case: For Visly, Framer AI, Uizard, TeleportHQ, Durable AI site builders  
+💡 Keywords: QR Menu, POS Billing, Table Management, Smart Invoice, UPI QR, Quickbils Software
+
