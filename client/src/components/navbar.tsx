@@ -14,20 +14,20 @@ export function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a 
-              href="#features" 
+            <a
+              href="#features"
               className="text-white/80 hover:text-[hsl(24,100%,66%)] transition-colors"
             >
               Features
             </a>
-            <a 
-              href="#pricing" 
+            <a
+              href="#pricing"
               className="text-white/80 hover:text-[hsl(24,100%,66%)] transition-colors"
             >
               Pricing
             </a>
-            <a 
-              href="#about" 
+            <a
+              href="#about"
               className="text-white/80 hover:text-[hsl(24,100%,66%)] transition-colors"
             >
               About
@@ -52,22 +52,22 @@ export function Navbar() {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-white/20">
             <div className="flex flex-col space-y-4 pt-4">
-              <a 
-                href="#features" 
+              <a
+                href="#features"
                 className="text-white/80 hover:text-[hsl(24,100%,66%)] transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Features
               </a>
-              <a 
-                href="#pricing" 
+              <a
+                href="#pricing"
                 className="text-white/80 hover:text-[hsl(24,100%,66%)] transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Pricing
               </a>
-              <a 
-                href="#about" 
+              <a
+                href="#about"
                 className="text-white/80 hover:text-[hsl(24,100%,66%)] transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >

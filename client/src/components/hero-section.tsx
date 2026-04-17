@@ -18,7 +18,7 @@ export function HeroSection() {
           {/* Left Content */}
           <div className="text-center md:text-left">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              Quickbils:<br/>
+              Quickbils:<br />
               <span className="text-[hsl(45,100%,96%)]">Scan. Order. Pay.</span>
             </h1>
             <p className="text-xl text-white opacity-90 mb-8 leading-relaxed">
@@ -51,7 +51,7 @@ export function HeroSection() {
                         </div>
                         <Smartphone className="w-6 h-6 text-gray-400" />
                       </div>
-                      
+
                       {/* Menu Items */}
                       <div className="space-y-4">
                         <div className="bg-white rounded-lg p-4 shadow-sm">
